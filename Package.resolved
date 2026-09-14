@@ -1,0 +1,14 @@
+{
+  "originHash" : "b8dee766d322b005f4e023bbf626f637261575a0433b1f40f01a9ad029229968",
+  "pins" : [
+    {
+      "identity" : "screenkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SoundBlaster/ScreenKit.git",
+      "state" : {
+        "revision" : "686de512c834b61ae9d30e2640c11639d2042a4d"
+      }
+    }
+  ],
+  "version" : 3
+}
