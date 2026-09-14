@@ -15,7 +15,7 @@ let package = Package(
         // with a version requirement after the package is tagged upstream.
         .package(
             url: "https://github.com/SoundBlaster/ScreenKit.git",
-            revision: "44395605bed56cac78784583454d086a6227d16e"
+            revision: "686de512c834b61ae9d30e2640c11639d2042a4d"
         )
     ],
     targets: [
