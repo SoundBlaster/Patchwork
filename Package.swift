@@ -11,12 +11,7 @@ let package = Package(
         .library(name: "Patchwork", targets: ["Patchwork"])
     ],
     dependencies: [
-        // Keep the first standalone snapshot reproducible. Replace this revision
-        // with a version requirement after the package is tagged upstream.
-        .package(
-            url: "https://github.com/SoundBlaster/ScreenKit.git",
-            revision: "686de512c834b61ae9d30e2640c11639d2042a4d"
-        )
+        .package(url: "https://github.com/SoundBlaster/ScreenKit.git", exact: "0.1.0")
     ],
     targets: [
         .target(name: "Patchwork", dependencies: ["ScreenKit"]),
