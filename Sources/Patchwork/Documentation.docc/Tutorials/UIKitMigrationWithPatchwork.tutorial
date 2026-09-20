@@ -1,0 +1,89 @@
+@Tutorial(time: 25) {
+    @Intro(title: "Migrate a Heterogeneous UIKit List with Patchwork") {
+        Keep an existing `UICollectionViewCell` in your list, then add UIKit content configurations, an existing `UIView`, and a SwiftUI view. The examples all render through one ScreenKit screen and one diffable-data-source lifecycle.
+
+        This guide targets iOS 18 and later. ScreenKit owns the collection and snapshots; Patchwork only adapts cell rendering. Create each renderer once per screen and return the retained value for matching items.
+    }
+
+    @Section(title: "Keep the legacy cell") {
+        @ContentAndMedia {
+            Start with the custom cell your UIKit screen already uses. `Patchwork.legacyCell` creates the collection registration and calls your configure closure for the current item while preserving the cell's reuse behavior.
+        }
+
+        @Steps {
+            @Step {
+                Adapt the existing cell and use its renderer in a ScreenKit list.
+
+                @Code(name: "CatalogScreen.swift", file: "01-preserve-legacy-cell.swift")
+            }
+        }
+    }
+
+    @Section(title: "Add a UIKit content configuration") {
+        @ContentAndMedia {
+            Use a `UIContentConfiguration` for rows that no longer need a custom cell subclass. Keep both renderers outside the per-item closure; select between their stable values using an item discriminator.
+        }
+
+        @Steps {
+            @Step {
+                Add a configuration renderer and route each row to the legacy or configuration adapter.
+
+                @Code(name: "CatalogScreen.swift", file: "02-add-content-configuration.swift")
+            }
+        }
+    }
+
+    @Section(title: "Host an existing UIView") {
+        @ContentAndMedia {
+            If a design-system component is already a `UIView`, keep it and supply a factory plus an item update closure. Patchwork places it in UIKit's content-configuration lifecycle.
+        }
+
+        @Steps {
+            @Step {
+                Add the UIView adapter for the rows that already use the component.
+
+                @Code(name: "CatalogScreen.swift", file: "03-host-existing-uiview.swift")
+            }
+        }
+    }
+
+    @Section(title: "Introduce a SwiftUI row") {
+        @ContentAndMedia {
+            Move only the row that benefits from SwiftUI. The adapter uses the item's stable identity when hosting the view; keep durable editing or business state in your model or feature state.
+        }
+
+        @Steps {
+            @Step {
+                Add a SwiftUI renderer and display all four content styles in the same collection.
+
+                @Code(name: "CatalogScreen.swift", file: "04-add-swiftui-row.swift")
+            }
+        }
+    }
+
+    @Section(title: "Update the screen without adding another data source") {
+        @ContentAndMedia {
+            The feature continues to own catalog values. Send the latest items to the ScreenKit controller; Patchwork does not apply snapshots or own navigation.
+        }
+
+        @Steps {
+            @Step {
+                Apply updated rows with stable IDs through `ScreenViewController.setItems`.
+
+                @Code(name: "CatalogScreen.swift", file: "05-update-catalog.swift")
+            }
+        }
+    }
+
+    @Section(title: "Choose an adapter for the next row") {
+        @ContentAndMedia {
+            Compare the four adapters in the [Patchwork API reference](https://soundblaster.github.io/Patchwork/#choose-an-adapter). Keep the adapter value stable for the lifetime of this screen and keep durable state in the feature or model.
+        }
+
+        @Steps {
+            @Step {
+                Pick one row in your application and move it to the adapter that matches its current UIKit or SwiftUI implementation.
+            }
+        }
+    }
+}
