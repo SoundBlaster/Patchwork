@@ -17,10 +17,10 @@ final class PatchworkTests: XCTestCase {
         let item = Item(id: 1)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
-        let legacy = Patchwork.legacyCell(LegacyCell.self) { _, _ in }
-        let configured = Patchwork.configuration { _, _ in UIListContentConfiguration.cell() }
-        let swiftUI = Patchwork.swiftUI { item in Text("Item \(item.id)") }
-        let uiView = Patchwork.uiView(make: { UILabel() }) { label, item in label.text = "Item \(item.id)" }
+        let legacy: ScreenCellRenderer<Item> = Patchwork.legacyCell(LegacyCell.self) { _, _ in }
+        let configured: ScreenCellRenderer<Item> = Patchwork.configuration { _, _ in UIListContentConfiguration.cell() }
+        let swiftUI: ScreenCellRenderer<Item> = Patchwork.swiftUI { item in Text("Item \(item.id)") }
+        let uiView: ScreenCellRenderer<Item> = Patchwork.uiView(make: { UILabel() }) { label, item in label.text = "Item \(item.id)" }
 
         XCTAssertTrue(legacy.cell(in: collection, at: IndexPath(item: 0, section: 0), item: item) is LegacyCell)
         XCTAssertNotNil(configured.cell(in: collection, at: IndexPath(item: 1, section: 0), item: item))

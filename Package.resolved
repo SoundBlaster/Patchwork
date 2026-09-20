@@ -1,13 +1,22 @@
 {
-  "originHash" : "1a037c5ff6d2d9b7a5fec748cab8317fd77743e2ce9bc920dbb616504853c6ec",
+  "originHash" : "e0a0d10dbc63bb9fbf0618421c129bc4a71c11aa510cfd3117ff454a2327861b",
   "pins" : [
     {
       "identity" : "screenkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SoundBlaster/ScreenKit.git",
       "state" : {
-        "revision" : "686de512c834b61ae9d30e2640c11639d2042a4d",
-        "version" : "0.1.0"
+        "revision" : "32a81068dc7d4dfc1ff77633aa20c58bc9470012",
+        "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "4799286537280063c85a32f09884cfbca301b1a1",
+        "version" : "602.0.0"
       }
     }
   ],

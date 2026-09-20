@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "Patchwork", targets: ["Patchwork"])
     ],
     dependencies: [
-        .package(url: "https://github.com/SoundBlaster/ScreenKit.git", exact: "0.1.0")
+        .package(url: "https://github.com/SoundBlaster/ScreenKit.git", exact: "0.2.0")
     ],
     targets: [
         .target(name: "Patchwork", dependencies: ["ScreenKit"]),
