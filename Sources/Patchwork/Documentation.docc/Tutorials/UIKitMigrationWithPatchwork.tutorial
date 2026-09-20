@@ -1,8 +1,8 @@
-@Tutorial(time: 25) {
-    @Intro(title: "Migrate a Heterogeneous UIKit List with Patchwork") {
-        Keep an existing `UICollectionViewCell` in your list, then add UIKit content configurations, an existing `UIView`, and a SwiftUI view. The examples all render through one ScreenKit screen and one diffable-data-source lifecycle.
+@Tutorial(time: 35) {
+    @Intro(title: "Migrate a UIKit List to SwiftUI with Patchwork") {
+        Replace a large UIKit list one row type at a time: keep legacy cells that have not been migrated, move selected rows through Patchwork renderers, then finish with a native SwiftUI `List`.
 
-        This guide targets iOS 18 and later. ScreenKit owns the collection and snapshots; Patchwork only adapts cell rendering. Create each renderer once per screen and return the retained value for matching items.
+        This guide targets iOS 18 and later. ScreenKit owns the collection and snapshots, while Patchwork adapts rendering during the mixed migration stage. Once every row is SwiftUI, remove both bridge packages from this screen.
     }
 
     @Section(title: "Keep the legacy cell") {
@@ -28,7 +28,7 @@
             @Step {
                 Add a configuration renderer and route each row to the legacy or configuration adapter.
 
-                @Code(name: "CatalogScreen.swift", file: "02-add-content-configuration.swift")
+                @Code(name: "CatalogScreen.swift", file: "02-add-content-configuration.swift", previousFile: "01-preserve-legacy-cell.swift")
             }
         }
     }
@@ -42,7 +42,7 @@
             @Step {
                 Add the UIView adapter for the rows that already use the component.
 
-                @Code(name: "CatalogScreen.swift", file: "03-host-existing-uiview.swift")
+                @Code(name: "CatalogScreen.swift", file: "03-host-existing-uiview.swift", previousFile: "02-add-content-configuration.swift")
             }
         }
     }
@@ -56,7 +56,7 @@
             @Step {
                 Add a SwiftUI renderer and display all four content styles in the same collection.
 
-                @Code(name: "CatalogScreen.swift", file: "04-add-swiftui-row.swift")
+                @Code(name: "CatalogScreen.swift", file: "04-add-swiftui-row.swift", previousFile: "03-host-existing-uiview.swift")
             }
         }
     }
@@ -70,19 +70,35 @@
             @Step {
                 Apply updated rows with stable IDs through `ScreenViewController.setItems`.
 
-                @Code(name: "CatalogScreen.swift", file: "05-update-catalog.swift")
+                @Code(name: "CatalogScreen.swift", file: "05-update-catalog.swift", previousFile: "04-add-swiftui-row.swift")
             }
         }
     }
 
-    @Section(title: "Choose an adapter for the next row") {
+    @Section(title: "Move the remaining rows to SwiftUI") {
         @ContentAndMedia {
-            Compare the four adapters in the [Patchwork API reference](https://soundblaster.github.io/Patchwork/documentation/patchwork/#choose-an-adapter). Keep the adapter value stable for the lifetime of this screen and keep durable state in the feature or model.
+            Replace the remaining cell, configuration, and `UIView` renderers with one retained SwiftUI renderer. The collection still runs through ScreenKit at this stage, so keep `updateCatalog` and `setItems` for incoming data. See the [Patchwork adapter API](https://soundblaster.github.io/Patchwork/documentation/patchwork/#choose-an-adapter) for the renderer signature.
         }
 
         @Steps {
             @Step {
-                Pick one row in your application and move it to the adapter that matches its current UIKit or SwiftUI implementation.
+                Remove the item-style switch and render every catalog item through `Patchwork.swiftUI`.
+
+                @Code(name: "CatalogScreen.swift", file: "06-all-swiftui-rows.swift", previousFile: "05-update-catalog.swift")
+            }
+        }
+    }
+
+    @Section(title: "Finish with a native SwiftUI screen") {
+        @ContentAndMedia {
+            With no UIKit renderer left, Patchwork and ScreenKit have completed their migration role. Replace the collection-backed controller with SwiftUI `NavigationStack` and `List`, and pass catalog values through a parent-owned `Binding` instead of manually applying snapshots. The resulting screen imports SwiftUI only.
+        }
+
+        @Steps {
+            @Step {
+                Remove the bridge imports and controller builder, then display the catalog with SwiftUI `List`.
+
+                @Code(name: "CatalogScreen.swift", file: "07-native-swiftui-list.swift", previousFile: "06-all-swiftui-rows.swift")
             }
         }
     }

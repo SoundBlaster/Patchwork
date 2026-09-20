@@ -1,37 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-labelledby="title desc">
-  <title id="title">Patchwork content adapters</title>
-  <desc id="desc">One ScreenKit collection chooses a Patchwork renderer for each row: a legacy cell, UIKit content configuration, UIView, or SwiftUI view.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" role="img" aria-labelledby="title desc">
+  <title id="title">UIKit list migration to SwiftUI</title>
+  <desc id="desc">A four-stage migration moves from a legacy UIKit list through Patchwork's mixed renderers and all-SwiftUI rows to a native SwiftUI List.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
       <path d="M0 0L10 5L0 10Z" fill="#52606d"/>
     </marker>
     <style>
       text { font-family: -apple-system, BlinkMacSystemFont, sans-serif; fill: #17212b; }
-      .title { font-size: 19px; font-weight: 650; }
-      .body { font-size: 14px; }
+      .title { font-size: 18px; font-weight: 650; }
+      .body { font-size: 13px; }
       .card { fill: #f3f6f8; stroke: #8a9aa8; stroke-width: 2; rx: 14; }
-      .screen { fill: #e5f1ff; stroke: #3976b8; }
+      .bridge { fill: #e5f1ff; stroke: #3976b8; }
+      .native { fill: #e8f5e9; stroke: #4f8a59; }
       .line { stroke: #52606d; stroke-width: 2.5; marker-end: url(#arrow); fill: none; }
     </style>
   </defs>
-  <rect width="900" height="280" fill="#ffffff"/>
-  <rect class="card screen" x="300" y="22" width="300" height="82"/>
-  <text class="title" x="450" y="56" text-anchor="middle">One ScreenKit collection</text>
-  <text class="body" x="450" y="82" text-anchor="middle">one data source and snapshot owner</text>
-  <path class="line" d="M380 105C330 135 155 130 110 163"/>
-  <path class="line" d="M425 105C410 132 330 138 330 163"/>
-  <path class="line" d="M475 105C490 132 570 138 570 163"/>
-  <path class="line" d="M520 105C570 135 745 130 790 163"/>
-  <rect class="card" x="20" y="176" width="180" height="82"/>
-  <text class="title" x="110" y="211" text-anchor="middle">Legacy cell</text>
-  <text class="body" x="110" y="235" text-anchor="middle">reuse preserved</text>
-  <rect class="card" x="240" y="176" width="180" height="82"/>
-  <text class="title" x="330" y="211" text-anchor="middle">UIContentConfiguration</text>
-  <text class="body" x="330" y="235" text-anchor="middle">native UIKit content</text>
-  <rect class="card" x="480" y="176" width="180" height="82"/>
-  <text class="title" x="570" y="211" text-anchor="middle">Existing UIView</text>
-  <text class="body" x="570" y="235" text-anchor="middle">make + update</text>
-  <rect class="card" x="700" y="176" width="180" height="82"/>
-  <text class="title" x="790" y="211" text-anchor="middle">SwiftUI View</text>
-  <text class="body" x="790" y="235" text-anchor="middle">hosted content</text>
+  <rect width="1000" height="260" fill="#ffffff"/>
+  <rect class="card" x="20" y="65" width="210" height="125"/>
+  <text class="title" x="125" y="111" text-anchor="middle">Legacy UIKit list</text>
+  <text class="body" x="125" y="139" text-anchor="middle">custom cells remain</text>
+  <text class="body" x="125" y="160" text-anchor="middle">until each row is ready</text>
+  <path class="line" d="M238 127h30"/>
+  <rect class="card bridge" x="280" y="65" width="210" height="125"/>
+  <text class="title" x="385" y="111" text-anchor="middle">Patchwork bridge</text>
+  <text class="body" x="385" y="139" text-anchor="middle">mix old and new rows</text>
+  <text class="body" x="385" y="160" text-anchor="middle">in one ScreenKit list</text>
+  <path class="line" d="M498 127h30"/>
+  <rect class="card bridge" x="540" y="65" width="210" height="125"/>
+  <text class="title" x="645" y="111" text-anchor="middle">SwiftUI rows</text>
+  <text class="body" x="645" y="139" text-anchor="middle">no UIKit renderers</text>
+  <text class="body" x="645" y="160" text-anchor="middle">left in the collection</text>
+  <path class="line" d="M758 127h30"/>
+  <rect class="card native" x="800" y="65" width="180" height="125"/>
+  <text class="title" x="890" y="111" text-anchor="middle">SwiftUI-only</text>
+  <text class="body" x="890" y="139" text-anchor="middle">native List</text>
+  <text class="body" x="890" y="160" text-anchor="middle">bridge removed</text>
 </svg>
