@@ -35,6 +35,10 @@ and prevents competing snapshot or reuse lifecycles.
 The package targets iOS 18 and later. It is intentionally a rendering adapter,
 not a domain model, navigation layer, or state manager.
 
+## Documentation
+
+Browse the [Patchwork API documentation](https://soundblaster.github.io/Patchwork/).
+
 ## Development
 
 UIKit and SwiftUI tests run from an iOS simulator. The app-level mixed-content
