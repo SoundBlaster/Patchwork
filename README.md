@@ -4,11 +4,14 @@ Patchwork adapts heterogeneous content to ScreenKit's collection renderer:
 legacy `UICollectionViewCell` subclasses, UIKit content configurations, existing
 `UIView` views, and SwiftUI views can coexist in one typed screen.
 
+ScreenKit owns screen creation and exports the `#screen` macro. Patchwork supplies
+the renderer values returned from the macro's body:
+
 ```swift
 import Patchwork
 import ScreenKit
 
-let screen = Screen(items) { item in
+let screen = #screen(items) { item in
     switch item.kind {
     case .legacy:
         Patchwork.legacyCell(LegacyCell.self) { cell, item in
@@ -20,6 +23,9 @@ let screen = Screen(items) { item in
         }
     }
 }
+    .title { "Products" }
+
+let controller = screen.makeViewController()
 ```
 
 ScreenKit remains the sole owner of the collection view and diffable data source;
