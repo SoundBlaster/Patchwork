@@ -77,7 +77,7 @@
 
     @Section(title: "Move the remaining rows to SwiftUI") {
         @ContentAndMedia {
-            Replace the remaining cell, configuration, and `UIView` renderers with one retained SwiftUI renderer. The collection still runs through ScreenKit at this stage, but every row is now a SwiftUI view. See the [Patchwork adapter API](https://soundblaster.github.io/Patchwork/documentation/patchwork/#choose-an-adapter) for the renderer signature.
+            Replace the remaining cell, configuration, and `UIView` renderers with one retained SwiftUI renderer. The collection still runs through ScreenKit at this stage, so keep `updateCatalog` and `setItems` for incoming data. See the [Patchwork adapter API](https://soundblaster.github.io/Patchwork/documentation/patchwork/#choose-an-adapter) for the renderer signature.
         }
 
         @Steps {
@@ -91,7 +91,7 @@
 
     @Section(title: "Finish with a native SwiftUI screen") {
         @ContentAndMedia {
-            With no UIKit renderer left, Patchwork and ScreenKit have completed their migration role. Replace the collection-backed controller with SwiftUI `NavigationStack` and `List`; the resulting screen imports SwiftUI only.
+            With no UIKit renderer left, Patchwork and ScreenKit have completed their migration role. Replace the collection-backed controller with SwiftUI `NavigationStack` and `List`, and pass catalog values through a parent-owned `Binding` instead of manually applying snapshots. The resulting screen imports SwiftUI only.
         }
 
         @Steps {

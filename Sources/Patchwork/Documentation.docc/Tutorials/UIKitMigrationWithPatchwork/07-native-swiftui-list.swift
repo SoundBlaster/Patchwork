@@ -19,14 +19,27 @@ struct CatalogSummary: View {
 }
 
 struct CatalogScreen: View {
-    let items: [CatalogItem]
+    @Binding var items: [CatalogItem]
 
     var body: some View {
         NavigationStack {
-            List(items) { item in
-                CatalogSummary(item: item)
+            List {
+                ForEach(items) { item in
+                    CatalogSummary(item: item)
+                }
+                .onDelete { offsets in
+                    items.remove(atOffsets: offsets)
+                }
             }
             .navigationTitle("Catalog")
         }
+    }
+}
+
+struct CatalogFeature: View {
+    @State private var items: [CatalogItem] = []
+
+    var body: some View {
+        CatalogScreen(items: $items)
     }
 }

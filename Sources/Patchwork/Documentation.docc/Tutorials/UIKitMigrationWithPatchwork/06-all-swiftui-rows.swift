@@ -30,3 +30,8 @@ func makeCatalogController(_ items: [CatalogItem]) -> ScreenViewController<Int, 
         .title { "Catalog" }
         .makeViewController()
 }
+
+@MainActor
+func updateCatalog(_ items: [CatalogItem], in controller: ScreenViewController<Int, CatalogItem>) {
+    controller.setItems(items, animated: true)
+}
