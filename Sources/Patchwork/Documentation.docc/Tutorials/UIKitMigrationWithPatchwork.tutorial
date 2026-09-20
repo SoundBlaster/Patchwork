@@ -77,7 +77,7 @@
 
     @Section(title: "Choose an adapter for the next row") {
         @ContentAndMedia {
-            Compare the four adapters in the [Patchwork API reference](https://soundblaster.github.io/Patchwork/#choose-an-adapter). Keep the adapter value stable for the lifetime of this screen and keep durable state in the feature or model.
+            Compare the four adapters in the [Patchwork API reference](https://soundblaster.github.io/Patchwork/documentation/patchwork/#choose-an-adapter). Keep the adapter value stable for the lifetime of this screen and keep durable state in the feature or model.
         }
 
         @Steps {
