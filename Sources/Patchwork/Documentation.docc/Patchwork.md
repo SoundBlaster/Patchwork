@@ -53,3 +53,11 @@ stable across updates so ScreenKit can preserve the existing cell registrations.
 ### Render UIKit and SwiftUI content
 
 - ``Patchwork``
+
+## Migration tutorial
+
+- <doc:UIKitMigrationWithPatchwork>
+
+## See Also
+
+- [Start by moving the collection screen itself to ScreenKit](https://soundblaster.github.io/ScreenKit/tutorials/screenkit/uikitcollectionmigration/)

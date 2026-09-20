@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" role="img" aria-labelledby="title desc">
+  <title id="title">Patchwork content adapters</title>
+  <desc id="desc">One ScreenKit collection chooses a Patchwork renderer for each row: a legacy cell, UIKit content configuration, UIView, or SwiftUI view.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#52606d"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, sans-serif; fill: #17212b; }
+      .title { font-size: 19px; font-weight: 650; }
+      .body { font-size: 14px; }
+      .card { fill: #f3f6f8; stroke: #8a9aa8; stroke-width: 2; rx: 14; }
+      .screen { fill: #e5f1ff; stroke: #3976b8; }
+      .line { stroke: #52606d; stroke-width: 2.5; marker-end: url(#arrow); fill: none; }
+    </style>
+  </defs>
+  <rect width="900" height="280" fill="#ffffff"/>
+  <rect class="card screen" x="300" y="22" width="300" height="82"/>
+  <text class="title" x="450" y="56" text-anchor="middle">One ScreenKit collection</text>
+  <text class="body" x="450" y="82" text-anchor="middle">one data source and snapshot owner</text>
+  <path class="line" d="M380 105C330 135 155 130 110 163"/>
+  <path class="line" d="M425 105C410 132 330 138 330 163"/>
+  <path class="line" d="M475 105C490 132 570 138 570 163"/>
+  <path class="line" d="M520 105C570 135 745 130 790 163"/>
+  <rect class="card" x="20" y="176" width="180" height="82"/>
+  <text class="title" x="110" y="211" text-anchor="middle">Legacy cell</text>
+  <text class="body" x="110" y="235" text-anchor="middle">reuse preserved</text>
+  <rect class="card" x="240" y="176" width="180" height="82"/>
+  <text class="title" x="330" y="211" text-anchor="middle">UIContentConfiguration</text>
+  <text class="body" x="330" y="235" text-anchor="middle">native UIKit content</text>
+  <rect class="card" x="480" y="176" width="180" height="82"/>
+  <text class="title" x="570" y="211" text-anchor="middle">Existing UIView</text>
+  <text class="body" x="570" y="235" text-anchor="middle">make + update</text>
+  <rect class="card" x="700" y="176" width="180" height="82"/>
+  <text class="title" x="790" y="211" text-anchor="middle">SwiftUI View</text>
+  <text class="body" x="790" y="235" text-anchor="middle">hosted content</text>
+</svg>

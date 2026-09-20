@@ -1,0 +1,12 @@
+@Tutorials(name: "Patchwork Migration Tutorials") {
+    @Intro(title: "Keep UIKit content while modernizing its screen") {
+        Migrate in place: retain cells that still work, then introduce native configuration, UIView, and SwiftUI rows through renderer adapters.
+    }
+
+    @Chapter(name: "Mix UIKit and SwiftUI Content") {
+        Preserve an existing collection cell and add newer content types to one ScreenKit-backed list without creating another data source.
+        @Image(source: "patchwork-content-map", alt: "A ScreenKit collection routes four row types to a legacy cell, a UIKit content configuration, an existing UIView, or a SwiftUI view through Patchwork renderers.")
+        @TutorialReference(tutorial: "doc:UIKitMigrationWithPatchwork")
+    }
+
+}
