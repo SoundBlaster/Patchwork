@@ -43,7 +43,8 @@ not a domain model, navigation layer, or state manager.
 
 ## Documentation
 
-Browse the [Patchwork API documentation](https://soundblaster.github.io/Patchwork/).
+- [Patchwork API](https://soundblaster.github.io/Patchwork/)
+- [How to Migrate a UIKit List to SwiftUI with Patchwork](https://soundblaster.github.io/Patchwork/tutorials/patchwork/uikitmigrationwithpatchwork)
 
 ## Development
 
