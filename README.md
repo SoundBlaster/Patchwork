@@ -1,5 +1,11 @@
 # Patchwork
 
+[![DocC](https://github.com/SoundBlaster/Patchwork/actions/workflows/documentation.yml/badge.svg?branch=main)](https://github.com/SoundBlaster/Patchwork/actions/workflows/documentation.yml)
+[![Documentation](https://img.shields.io/badge/Documentation-DocC-blue)](https://soundblaster.github.io/Patchwork/)
+![Swift 6.2+](https://img.shields.io/badge/Swift-6.2%2B-orange?logo=swift)
+![iOS 18+](https://img.shields.io/badge/iOS-18%2B-lightgrey?logo=apple)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Patchwork adapts heterogeneous content to ScreenKit's collection renderer:
 legacy `UICollectionViewCell` subclasses, UIKit content configurations, existing
 `UIView` views, and SwiftUI views can coexist in one typed screen.
