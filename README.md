@@ -6,7 +6,7 @@
 ![iOS 18+](https://img.shields.io/badge/iOS-18%2B-lightgrey?logo=apple)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Patchwork adapts heterogeneous content to ScreenKit's collection renderer:
+Patchwork adapts heterogeneous content to [ScreenKit's collection renderer](https://github.com/SoundBlaster/ScreenKit):
 legacy `UICollectionViewCell` subclasses, UIKit content configurations, existing
 `UIView` views, and SwiftUI views can coexist in one typed screen.
 
