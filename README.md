@@ -1,6 +1,7 @@
 # Patchwork
 
 [![DocC](https://github.com/SoundBlaster/Patchwork/actions/workflows/documentation.yml/badge.svg?branch=main)](https://github.com/SoundBlaster/Patchwork/actions/workflows/documentation.yml)
+[![Latest Release](https://img.shields.io/github/v/release/SoundBlaster/Patchwork)](https://github.com/SoundBlaster/Patchwork/releases/latest)
 [![Documentation](https://img.shields.io/badge/Documentation-DocC-blue)](https://soundblaster.github.io/Patchwork/)
 ![Swift 6.2+](https://img.shields.io/badge/Swift-6.2%2B-orange?logo=swift)
 ![iOS 18+](https://img.shields.io/badge/iOS-18%2B-lightgrey?logo=apple)
@@ -9,6 +10,10 @@
 Patchwork adapts heterogeneous content to [ScreenKit's collection renderer](https://github.com/SoundBlaster/ScreenKit):
 legacy `UICollectionViewCell` subclasses, UIKit content configurations, existing
 `UIView` views, and SwiftUI views can coexist in one typed screen.
+
+Patchwork 0.1.3 uses ScreenKit 0.3.0. Its migration tutorial follows the transition
+through a mixed UIKit/SwiftUI list and ends with a SwiftUI-only `List` after UIKit
+renderers are no longer needed.
 
 ScreenKit owns screen creation and exports the `#screen` macro. Patchwork supplies
 the renderer values returned from the macro's body:
